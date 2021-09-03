@@ -160,4 +160,24 @@ function removeElement(el: HTMLElement): void {
     el.remove();
 }
 
-removeElement(document.getElementById('teste'));
+let teste = document.getElementById('teste') as HTMLElement
+
+removeElement(teste);
+
+function testando(n1: number, n2: number) {
+    //let nome = 'dani'
+    return n1 + n2
+    // "noEmitOnError": true, obs: descomentar "noUnusedLocals": true
+}
+
+// tsc src/fileName.ts -w comando watchMode
+
+// create tsconfig.json
+// tsc --init
+
+// tsc compila todos os arquivos typescript após criar o tsconfig.json com tsc --init
+
+// "outDir": "./public/assets/js", obs: posso colocar qualquer pasta
+// "removeComments": true,
+// "noEmitOnError": true,
+// 
