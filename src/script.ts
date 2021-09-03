@@ -95,3 +95,69 @@ mostrarCarro({
     name: 'Camaro',
     price: 99000
 });
+
+// Type Assertions
+let priceField = document.getElementById('price') as HTMLInputElement;
+console.log(priceField.value);
+
+// Types literais
+const nameLiteral: string = 'Daniel';
+
+function showText(text: string, align: 'center' | 'left' | 'right') {
+    return `<div style="text-align: ${align}">${text}</div>`;
+}
+
+showText('Olá, este é meu texto', 'center');
+showText('Olá, este é meu texto', 'left');
+showText('Olá, este é meu texto', 'right');
+// Error not exist oi no type 'center' | 'left' | 'right'
+// showText('Olá, este é meu texto', 'oi');
+
+// Inferência literal
+const requisition = (url: string, method: 'GET' | 'POST') => {
+    // ....
+}
+
+type requestDetails = {
+    url: string,
+    method: 'GET' | 'POST', // string, error
+}
+
+let req: requestDetails = {
+    url: 'https://site.com.br/api',
+    method: 'GET'
+}
+
+requisition(req.url, req.method);
+
+// Type para funções
+type calcFunction = (n1: number, n2: number) => number
+
+const somar: calcFunction = (n1, n2) => {
+    return n1 + n2;
+}
+
+const subtrair: calcFunction = (n1, n2) => {
+    return n1 - n2;
+}
+
+const multiplicar: calcFunction = (n1, n2) => {
+    return n1 * n2;
+}
+
+const dividir: calcFunction = (n1, n2) => {
+    return n1 / n2;
+}
+
+somar(20, 4);
+subtrair(10, 4);
+multiplicar(2, 4);
+dividir(10, 2);
+
+// Retorno void
+// Faz algo mas não tem retorno, retornamos void, example remover elemento da tela
+function removeElement(el: HTMLElement): void {
+    el.remove();
+}
+
+removeElement(document.getElementById('teste'));
